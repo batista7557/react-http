@@ -1,17 +1,6 @@
 # React com Http
 
-Projeto em React com exemplo de requisições HTTP com Fecth API.
-
-## Instalar dependencias
-
-```sh
-npm install
-```
-
-## Executar Aplicação
-
-```sh
-npm start
-```
-
-Então abra [http://localhost:3000/](http://localhost:3000/) para ver a Aplicação.
+Projeto em React com exemplo de requisições HTTP com Fecth API. Projeto single-page para adicionar usuários na tela utilizando os três principais métodos:
+- GET: Pegar os usuários de uma API (https://reqres.in/);
+- POST: Cadastrar um novo usuário no armazenamento do web service;
+- DELETE: Deletar um usuário, criado manualmente ou importado via API.

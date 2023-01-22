@@ -1,47 +1,56 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, NavLink, Switch, Route } from 'react-router-dom';
 
 import Usuarios from './components/Usuarios/Usuarios'
-import AdicionarUsuario from './components/AdicionarUsuario/AdicionarUsuario';
-import Home from './components/Home/Home';
+import AdicionarUsuario from './components/AdicionarUsuario/AdicionarUsuario'
+import Home from './components/Home/Home'
 
 function App() {
   return (
-    <Router>     
+    <Router>
       <div className="App">
         <header>
           <nav>
             <ul>
               <li>
-                <Link to="/">Início</Link>
+                <NavLink to="/" exact>Início</NavLink>
               </li>
               <li>
-                <Link href="/usuarios">Usuários cadastrados</Link>
+                <NavLink to="/usuarios">Usuários Cadastrados</NavLink>
               </li>
               <li>
-                <Link href="/adicionar">Adicionar Usuário</Link>
+                <NavLink to="/adicionar">Adicionar Usuário</NavLink>
               </li>
             </ul>
           </nav>
         </header>
         <main>
           <Switch>
+            <Route path="/" exact>
+              <Home />
+            </Route>
             <Route path="/usuarios">
-              <Usuarios/>
+              <Usuarios />
             </Route>
             <Route path="/adicionar">
-              <AdicionarUsuario/>
+              <AdicionarUsuario />
             </Route>
-            <Route path="/">
-              <Home/>
+            <Route path="*">
+              <PaginaNaoEncontrada />
             </Route>
           </Switch>
         </main>
       </div>
     </Router>
   );
+}
 
+function PaginaNaoEncontrada() {
+  return <>
+    <h1>404</h1>
+    <p>Página não encontrada</p>
+  </>
 }
 
 export default App;

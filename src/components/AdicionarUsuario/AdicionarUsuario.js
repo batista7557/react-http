@@ -22,13 +22,19 @@ function AdicionarUsuario(props) {
       headers: { 'Content-Type': 'application/json'},
       body: JSON.stringify(usuario)
     })
-      .then(resposta => resposta.json())
+      .then(resposta => {
+        if (resposta.ok) {
+          setNome('')
+          setSobrenome('')
+          setEmail('')
+          alert('Usuário cadastrado com sucesso!')
+        }
+      })
+      /*
       .then(dados => {
-        setNome('')
-        setSobrenome('')
-        setEmail('')
         props.adicionarUsuario(dados)
-      }) 
+      })
+      */ 
   }
 
     return (
